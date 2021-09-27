@@ -53,7 +53,7 @@ def create_job_list(job_path):
                 color_page_index = column_names.index('color pages')
                 double_side_index = column_names.index('double sided')
             else:
-                total_page = row[total_page_index].strip()  # Get data through index to adapt different orders of columns
+                total_page = row[total_page_index].strip()  # Get data through index to fit different orders of columns
                 color_page = row[color_page_index].strip()
                 if not total_page.isnumeric():  # Check if the data is valid
                     raise ValueError('The value of Total Pages must be a Non-negative integer')
@@ -61,8 +61,8 @@ def create_job_list(job_path):
                     raise ValueError('The value of Color Pages must be a Non-negative integer')
                 total_page = int(total_page)
                 color_page = int(color_page)
-                if color_page > total_page:
-                    raise ValueError('The value of Color Pages must less than the value of Total Pages')
+                if color_page > total_page:  
+                    raise ValueError('The value of Color Pages must no greater than the value of Total Pages')
                 double_sided = row[double_side_index].strip().lower()
                 if double_sided not in ['true', 'false']:
                     raise ValueError('The value of Double Sided must be "true" or "false"')
