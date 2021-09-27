@@ -53,7 +53,7 @@ def create_job_list(job_path):
                 color_page_index = column_names.index('color pages')
                 double_side_index = column_names.index('double sided')
             else:
-                total_page = row[total_page_index].strip()
+                total_page = row[total_page_index].strip()  # Get data through index to adapt different orders of columns
                 color_page = row[color_page_index].strip()
                 if not total_page.isnumeric():  # Check if the data is valid
                     raise ValueError('The value of Total Pages must be a Non-negative integer')
